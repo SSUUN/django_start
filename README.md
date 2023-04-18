@@ -1,2 +1,2 @@
 # django_start
-hi
+ django pro
