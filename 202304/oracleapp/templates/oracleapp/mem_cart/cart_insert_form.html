@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_update</title>
+
+    
+
+
+
+</head>
+<body>
+    <h1> cart_update</h1>
+<form name="fm" id="fm" method="post" action="/oracle/mem_cart_insert/">
+
+    {% csrf_token %}
+    
+
+    <p > 회원 아이디 : <input type="text" name="cart_member_id"  value="a001" required></p>
+    <p > 주문 번호   : <input type="text" name="cart_no"  value="2023041300001" required></p>
+    <p>제품 아이디 : <input type="text" name="cart_prod"  value="P201000018" required></p>
+    <p>주문 수량   : <input type="text" name="cart_qty"  value="56" required></p>
+    
+    <hr>
+    <input type="submit" value="저장하기">
+    <input type="button" value="뒤로가기" onclick="javascript:history.go(-1)">
+    
+
+</form>
+</body>
+</html>

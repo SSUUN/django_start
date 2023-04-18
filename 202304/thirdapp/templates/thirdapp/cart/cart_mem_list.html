@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_mem_list</title>
+
+    <script type="text/javascript">
+        function goview(x,y){
+
+            location.href="/third/cartmemview/?cart_no="+x+"&cart_prod="+y
+        }
+        function goinset(){
+
+            location.href="/third/cartmemview/?cart_no="+x+"&cart_prod="+y
+        }
+        function logout1(){
+
+            location.href="/third/logout/"
+        }
+        function sortp(y,x){
+            url="/third/cartmemlist/?col="+x
+            if(y=="1")
+            {url+="&desc=1"}
+            else{
+                url+="&desc=0"
+            }
+            location.href=url
+            
+        }
+
+    </script>
+</head>
+<body>
+    <h1>cart_mem_list</h1>
+    {% if not request.session.mem_id %}
+        <form action="/third/login_form/">
+            {% csrf_token %}
+            아이디 : <input type="text" name="mem_id" >
+             패스워드: <input type="password" name="mem_pass" >
+            <input type="submit" value="로그인" >
+        </form>
+    {% else %}
+        {{request.session.mem_name}} 로그인중 <input type="button" value="로그아웃" onclick="logout1()">
+    {% endif %}
+    <table border="1">
+        <tr>
+    
+    
+        <th>아이디</th>
+        <!-- <th>{{i.mem_name}}</th>
+        <th>{{i.mem_add1}}</th> -->
+        <th>구매번호
+            <input type="radio" name="s1" onclick="sortp('1','cart_no')">
+            <input type="radio" name="s1"  onclick="sortp('0','cart_no')">
+        </th>
+        
+        <th>품목번호</th>
+        <th>구매개수
+            <input type="radio" name="s1" onclick="sortp('1','cart_qty')">
+            <input type="radio" name="s1"  onclick="sortp('0','cart_qty')">
+        </th>
+         
+        </tr>
+
+        {% for i in cart_mem %}
+    <tr>
+        <th><a href="javascript:goview('{{i.cart_no}}','{{i.cart_prod}}')">{{i.mem_id}}</a></th>
+        <!-- <th>{{i.mem_name}}</th>
+        <th>{{i.mem_add1}}</th> -->
+        <th>{{i.cart_no}}</th>
+        <th>{{i.cart_prod}}</th>
+        <th>{{i.cart_qty}}</th>
+    </tr>
+          {% endfor %}
+    </table>
+</body>
+</html>

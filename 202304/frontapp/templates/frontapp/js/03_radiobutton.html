@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function allre(){
+            location.reload();
+        }
+        function redio(){
+            fm=document.getElementById("fm");
+            //alert("asd")
+            //라디오 버튼값은 여러개
+            // for 문을 이용해서 체크여부 확인
+            // 체크가 되었다면 checked가 True
+            // 체크안된 버튼은 checked False
+            for (i=0 ;i<fm.city.length;i++){
+                if (fm.city[i].checked==true){
+                //alert(fm.city[i].value)
+                    fm.city[i].checked=false;
+                }
+                }
+            }
+        function goinsert(){
+            
+            a=document.getElementById("fm");
+            //a.city.value
+            alert(a.city.value);
+            //location.href="/front/";
+        }
+        function getgo(){
+            a=document.getElementById("fm");
+            url="/front/04_radio/?";
+            if (a.city.value==""){
+                location.href=url;
+            }
+            else{
+            url=url+"city="+a.city.value;
+            location.href=url;}
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1> radiobutton</h1>
+
+    <hr/>
+
+    <form id="fm" name="fm" method="post" action="/front/04_radio/">
+        {% csrf_token %}
+
+        <!-- 라디오 버튼 
+        하나의 항목에 대해서 여러개의 버튼의 name 은 동일하게 처리 
+        value  값은 지정되어 있어야함
+        서낵된 값 1개가 name 이름으로 전송 -->
+        지역 선택 :
+        <input type="radio" name="city" value="서울"> 서울
+        <input type="radio" name="city" value="경기"> 경기
+        
+        <input type="radio" name="city" value="광주"> 광주
+        <input type="radio" name="city" value="부산"> 부산
+
+        <hr/>
+        <input type="submit" value="저장하기post" >
+        <input type="button" value="저장하기get" onclick="getgo()">
+    
+        <input type="button" value="라디오 버튼만 초기와" onclick="redio()">
+
+        
+        
+        <input type="button" value="전ㅊ초기화" onclick="allre()">
+
+    </form>
+
+</body>
+</html>

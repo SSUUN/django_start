@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_mem_prod</title>
+</head>
+<body>
+    <h1>cart_mem_prod_list</h1>
+
+    
+
+    <table border="1">
+    <tr>
+        <th>회원이름</th>
+        <th>상품명</th>
+        <th>주문번호</th>
+        <th>주문수량</th>
+    </tr>
+    
+  
+    <!-- 'mem_id': 'a001', <br>
+    'mem_pass': 'asdfasdf',<br>
+    'mem_name': ' 김은대', <br>
+    'mem_add1': '대전시 동구 용운동', <br>
+
+    'prod_id': 'P201000018', <br>
+    'prod_name': '여성 여름 자켓 3', <br>
+
+    'prod_lgu_id': 'P201', <br>
+    'prod_buyer_id': 'P20102', <br>
+
+    'prod_cost': 120000,<br>
+    'prod_price': 180000, <br>
+    'prod_sale': 150000,<br>
+
+    'cart_member_id': 'a001', <br>
+    'cart_no': '2023041300003', <br>
+    'cart_prod_id': 'P201000018',<br>
+    'cart_qty': 3<br>
+ -->
+
+
+    {% for i in cart_list2 %}
+        <tr>
+            <td>{{i.mem_name}}</td>
+            <td>{{i.prod_name}}</td>
+            <td>{{i.cart_no}}</td>
+            <td>{{i.cart_qty}}</td>
+        </tr>
+
+    {% endfor %}
+
+
+    
+    </table>
+<table border="1">
+    <tr>
+        <th>회원이름</th>
+        <th>비밀번호</th>
+        <th>회원이름</th>
+        <th>주소</th>
+
+        <th>제품번호</th>
+        <th>제품이름</th>
+        <th>상품분류</th>
+        <th>공급업체</th>
+
+        <th>매입가</th>
+        <th>소매가</th>
+        <th>판매가</th>
+
+        
+        <th>구매번호</th>
+        <th>구매수량</th>
+
+    </tr>
+    {% for i in cart_list2 %}
+        <tr>
+            <td>{{i.mem_id}}</td>
+            <td>{{i.mem_pass}}</td>
+            <td>{{i.mem_name}}</td>
+            <td>{{i.mem_add1}}</td>
+
+            <td>{{i.prod_id}}</td>
+            <td>{{i.prod_name}}</td>
+            <td>{{i.prod_lgu_id}}</td>
+            <td>{{i.prod_buyer_id}}</td>
+
+            <td>{{i.prod_cost}}</td>
+            <td>{{i.prod_price}}</td>
+            <td>{{i.prod_sale}}</td>
+            <td>{{i.cart_no}}</td>
+            <td>{{i.cart_qty}}</td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+
+<table border="1">
+    <tr>
+    {% for i in cart_list_key %}
+        <th>{{i}}</th>
+    {% endfor %}
+</tr>
+    {% for i in cart_list_values %}
+        <tr>
+            {% for j in i %}
+                <td>{{j}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css처리</title>
+    <style>
+        h1{
+            color: red;
+            font-size: 300%;
+        }
+        p{
+            background-color:rgb(255, 255, 0);
+            color: blue;
+            font-size:30px;
+            border:10px solid red;
+            padding:20px;
+            margin:20px;
+        }
+        #p2{
+            background-color:rgb(255, 255, 0);
+            color: rgb(255, 0, 0);
+            font-size:30px;
+            border:10px solid red;
+            padding:20px;
+            margin:20px;
+        }
+       .p34{
+        background-color:rgb(4, 0, 255);
+        color: rgb(255, 255, 255);
+        font-size:30px;
+        border:10px solid red;
+        padding:20px;
+        margin:20px;
+       }
+    </style>
+
+</head>
+<body>
+    <h1>css 처리페이지</h1>
+    <hr>
+    <!--내부방식으로 스타일 적용하기 
+        hr 태그 내에있는  text 는 빨강색으러 
+        p는 파란색 -->
+    <p>
+        텟트 폰트 색상 사이즈등 스타일 적용
+    </p>
+
+    <p id="p2">
+        스타일 적용 잘 되네요
+    </p>
+    <p class="p34">
+        텟트 폰트 색상 사이즈등 스타일 적용
+    </p>
+    <p class="p34">
+        텟트 폰트 색상 사이즈등 스타일 적용
+    </p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mem_update_fotm</title>
+</head>
+
+<body>
+    <form id="fm" name="fm" method="post" action="/second/mem_update/">
+        {% csrf_token %}
+        <input type="hidden" name="mem_id" value="{{mem_view.mem_id}}">
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>pass</th>
+            <th>add1</th>
+            <th>name</th>
+        </tr>
+
+        <tr>
+            <td>{{mem_view.mem_id}}</td>
+
+            <td> <input type="password" name="mem_pass" value="{{mem_view.mem_pass}}" required></td>
+            <td> <input type="text" name="mem_add1" value="{{mem_view.mem_add1}}" required size="20"></td>
+            <td> <input type="text" name="mem_name" value="{{mem_view.mem_name}}" required ></td>
+            
+            
+
+        </tr>
+    </table>    
+    <input type="button" value="돌아가기" onclick="javascrip:history.go(-1)">
+    <input type="submit" value="수정하기">
+</form>
+</body>
+</html>

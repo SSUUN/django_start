@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkbox</title>
+
+    <script type="text/javascript">
+        // fm 가졍화서 .city
+        function out3(){
+            fm=document.getElementById("fm")
+            
+            for (i=0;i<fm.city.length;i++){
+                fm.city[i].checked=false;
+            }
+        }
+        // city 가져와서 바로 value
+        function out2(){
+            fm=document.getElementsByName("city")
+            
+            for (i=0;i<fm.length;i++){
+                fm[i].checked=false;
+            }
+        }
+        function out1(){
+            fm=document.getElementById("fm")
+            list=""
+            for (i=0;i<fm.city.length;i++){
+                if (fm.city[i].checked){
+                    if (list==""){
+                        list+=fm.city[i].value
+                    }
+                    else{
+                    list+=","+fm.city[i].value}
+                }
+            }
+            //slice (시작 , 끝 ) 문자열 슬라이싱
+            //list.slice(0,-1)
+            alert(list)
+        }
+      function initcheck(x){
+        fm=document.getElementById("fm")
+    
+        for(i=0;i<fm.city.length;i++){
+            if(fm.city[i].value==x){
+                fm.city[i].checked=true;
+            }
+        }
+      }
+      function getsplit(x){
+        msg="서울,광주";
+        msg=msg.split(",");
+        for(i=0;i<msg.length;i++){
+            alert(msg[i]);
+        }
+        
+      }
+      function multicheck(x){
+        x=x.split(",")
+        fm=document.getElementById("fm")
+        
+        for(i=0;i<fm.city.length;i++){
+            for(j=0;j<x.length;j++){
+                if(fm.city[i].value == x[j] ){
+                    fm.city[i].checked=true;
+                    break;
+                
+            }
+            }
+        }
+      }
+      
+    </script>
+</head>
+<body onload="multicheck('{{area}}')">
+    
+    <h1> checkbox</h1>
+    <hr>
+    <form id="fm" name="fm" method="post" action="#">
+        {% csrf_token %}
+        <!-- 체크q박스 
+        하나의 항목에 대해서 여러개의 버튼의 name 은 동일하게 처리 
+        value  값은 지정되어 있어야함
+        city=[a,b,c,d]
+        서낵된 값 1개가 name 이름으로 전송 -->
+        지역 선택 :
+        <input type="checkbox" name="city" value="서울"> 서울
+        <input type="checkbox" name="city" value="경기"> 경기
+        <input type="checkbox" name="city" value="광주"> 광주
+        <input type="checkbox" name="city" value="부산"> 부산
+        <hr/>
+        <input type="button" value="해제" onclick="out3()">
+        <!-- 검색 버튼 체크된 값들을 문자열 "서울,광주" 형태로-->
+        <input type="button" value="검색" onclick="out1()">
+        <input type="submit">
+        <button onclick="getsplit()" > split테스트</button>
+    </form>
+</body>
+</html>

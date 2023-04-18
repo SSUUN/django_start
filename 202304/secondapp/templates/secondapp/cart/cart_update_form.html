@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_update_form</title>
+</head>
+<body>
+    <h1>cart_update_form</h1>
+<form action="/second/cart_update/">
+    {% csrf_token %}
+    <input type="hidden" name="cart_no" value="{{cart_no}}">
+    <input type="hidden" name="cart_prod" value="{{cart_prod}}">
+    <p>회원아이디 : {{cart_member}}</p>
+    <p>주문번호: {{cart_no}}</p>
+    <p>제품번호 : {{cart_prod}}</p>
+    <p>구매수량 : <input type="text" name="cart_qty" value="{{cart_qty}}" required></p>
+    <hr>
+
+    <input type="button" value="뒤로가기" onclick="javascript:history.go(-1)">
+    <input type="submit" value="수정하기" >
+
+</form>
+</body>
+</html>

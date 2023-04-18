@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:::::33:::: </title>
+    <!--- 외부 방식 -->
+    <link rel="stylesheet" 
+            href="/static/frontapp/css/front.css"
+            type="text/css">
+
+    <link rel="stylesheet" 
+            href='{% static "/frontapp/css/front.css" %}'
+            type="text/css">
+    <style>
+        h1 {
+            color: rgb(0, 255, 115);
+
+        }
+    </style>
+</head>
+<body >
+    
+    <h1 style="background-color: rgb(22, 1, 255);"> css33 test(외부방식 css 적용).<h1>
+        <hr/>
+        <p>
+            html 코드 잘 실행됩니다,
+        </p>
+    <hr/>
+    <p>데이터를 넣을 Eo : {{key1}}</p>
+    <hr/>
+    
+    index : <a href="/index/"> [바로가기]<a/>
+    <br>
+    image : <a href="/front/" > [바로가기]<a/>
+</body>
+</html>

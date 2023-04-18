@@ -1,0 +1,76 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        table{
+            border: 1px solid rgb(0, 0, 0);
+         /*두줄라인을 한줄로*/
+            border-collapse:collapse;
+        }
+        th,td{
+            /*안쪽 여뱍 */
+            padding: 15px;
+            /*가운ㄷ정령*/
+            text-align: center;
+        }
+        th{
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>table 처리페이지</h1>
+    <hr/>
+    <table border="1">
+        <!--행을 담당-->
+        <tr>
+            <!--컬럼제목-->
+            <th width="100"> 아이디</th>
+            <th width="100"> 이름 </th>
+            <th > 주소 </th>
+        </tr>
+        <!--대이터 축하기-->
+        <tr>
+            <td> a001</td>
+            <td> 홍길동 </td>
+            <td> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+        <!--대이터 축하기-->
+        <tr>
+            <td> a002</td>
+            <td> 홍길동 </td>
+            <td> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+
+        <tr >
+            <td colspan="2"> a002</td>
+            
+            <td> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+
+        <tr>
+            <td> a002</td>
+            
+            <td colspan="2"> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+
+        <tr>
+            <td rowspan="2"> a002</td>
+            <td> 홍길동1 </td>
+            <td> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+        <tr>
+            <td> 홍길동2 </td>
+            <td> 광주광역시 소촌동 1-1-1-1 </td>
+        </tr>
+    </table>
+
+    
+</body>
+</html>

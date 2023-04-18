@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_update</title>
+
+    
+
+
+
+</head>
+<body>
+    <h1> cart_update</h1>
+<form name="fm" id="fm" method="post" action="/nonmodel/cart_update/">
+
+    {% csrf_token %}
+    <input type="hidden" name="cart_no" value="{{cart_no}}">
+    <input type="hidden" name="cart_prod" value="{{cart_prod}}">
+
+    <p > 회원 아이디 : {{cart_member}}</p>
+    <p > 주문 번호   : {{cart_no}}</p>
+    <p>제품 아이디 : {{cart_prod}}</p>
+    <p>주문 수량   : <input type="text" name="cart_qty" value="{{cart_qty}}" required></p>
+    
+    <hr>
+    <input type="button" value="뒤로가기" onclick="javascript:history.go(-1)">
+    <input type="submit" value="수정하기">
+
+</form>
+</body>
+</html>

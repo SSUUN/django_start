@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prod_view</title>
+
+    <script type="text/javascript">
+        function goupdate(x){
+        location.href="/oracle/prod_update_form/?prod_id="+x
+        }
+    </script>
+</head>
+<body>
+
+    <h1>prod_view</h1>
+    
+    <p> 상품코드 : {{prod_id}}</p>
+    <p> 상품명 : {{prod_name}}</p>
+    <p> 상품분류 : {{prod_lgu}}</p>
+    <p> 공급업체 : {{prod_buyer}}</p>
+    <p> 매입가 : {{prod_cost}}</p>
+    <p> 소비자가 : {{prod_price}}</p>
+    <p> 판매가 : {{prod_sale}}</p>
+
+
+    <hr>
+    <input type="button" value="목록가기" onclick="javascript:location.href='/oracle/prod_list/'">
+    <input type="button" value="수정하기" onclick="goupdate('{{prod_id}}')">
+
+
+</body>
+</html>

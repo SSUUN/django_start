@@ -1,0 +1,109 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul ol dl</title>
+    <style>
+        /* ul tag style */
+        ul{
+            /* 표식 사용하지 않기*/
+           /* list-style-type:none;*/
+           /*채워진 원 표시 */
+           /*list-style-type:disc;*/
+            /*채워진 사각형 표시 */
+           list-style-type:square;
+        }
+        ul.menu>li{
+            display: inline;
+            
+        }
+
+        ul.menu>li a{
+            background-color:rgb(21, 0, 248);
+            color:white;
+            padding: 10px 20px;
+            /* 어더라인 제거*/
+            text-decoration:none;
+            /* 사각형 모서리*/
+            border-radius: 100px 100px 100px 100px;
+            
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <h1>ul ol dl 처리페이지</h1>
+
+
+    <h5>표식을 이용하여 목록 새엉</h5>
+    <hr/>
+    <ul>
+        <li>커피</li>
+        <li>ck</li>
+        <li>우유</li>
+        
+    </ul>
+
+    <h5>번호 이용하여 목록 표시</h5>
+    <ol>    
+        <li>커피</li>
+        <li>ck</li>
+        <li>우유</li>
+    </ol>
+    <h5>알파벳 eoanswk 을 이용하여 목록 표시</h5>
+    <ol type="I">    
+        <li>커피</li>
+        <li>ck</li>
+        <li>우유</li>
+        
+    </ol>
+    
+
+    <h5>제목 설명 혀태 목록 표시</h5>
+    <dl>    
+        <dt>커피</dt>
+        <dd>아메리카노 ,밀크라테,바닐라</dd>
+        <dt>커피</dt>
+        <dd>아메리카노 ,밀크라테,바닐라</dd>
+        
+    </dl>
+
+    <h5>표식기호 중첩 목록 표시</h5>
+    <ul>    
+        <li>커피
+            <ul>
+            <li>아메리카노</li> 
+            <li>밀크라테</li>
+            <ul>
+                <li>아메리카노</li> 
+                <li>밀크라테</li>
+                <li>바닐라</li>
+            </ul>
+            <li>바닐라</li>
+                <ul>
+                <li>아메리카노</li> 
+                <li>밀크라테</li>
+                <li>바닐라</li>
+                </ul>
+            </ul>
+        </li>
+        <li>우유</li>
+    </ul>
+    <hr>
+    <!-- 표식 방법을 이용해서 메뉴 만들기-->
+    <ul class="menu">
+        <li ><a href="/front/01_html/">커피</a></li>
+        <li ><a href="/front/01_html/">차</a></li>
+        <li><a href="/front/01_html/">음료</a></li>
+        <li><a href="/front/01_html/">기타</a></li>
+        
+    </ul>
+
+    
+     
+</body>
+</html>

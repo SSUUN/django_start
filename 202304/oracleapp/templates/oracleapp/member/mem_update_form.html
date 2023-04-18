@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mem_update</title>
+    <script type="text/javascript">
+        function r(){
+
+
+        }
+    </script>
+</head>
+<body>
+    <form neme="fm" id="fm" method="post" action="/oracle/mem_update/">
+        <input type="hidden" name="mem_id" value="{{mem_view.mem_id}}">
+        {% csrf_token %}
+        
+        <table border="1">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th> 
+        </tr>
+        <tr>
+    <td>{{mem_view.mem_id}}</td>
+    <td>
+        <input type="password" name="mem_pass" value="{{mem_view.mem_pass}}" size="10" required>
+    </td>
+    <td>{{mem_view.mem_name}}</td>
+    <td>
+        <input type="text" name="mem_add1" value="{{mem_view.mem_add1}}" size="20" required>
+        
+    </td> 
+</tr>
+</table>
+<hr>
+<input type="button" value="취소하기" onclick="javascrip:history.go(-1)">
+<input type="submit" value="저장하기">
+
+</form>
+
+</body>
+</html>

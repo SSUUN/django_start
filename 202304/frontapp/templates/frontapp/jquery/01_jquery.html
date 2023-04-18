@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_jquery</title>
+
+    <script type='text/javascript'
+        src="{% static 'frontapp/js/jquery-3.6.4.min.js' %}">
+        
+    </script>
+
+    <script type='text/javascript'>
+        //기본형태
+        //jquery 시작은 $ 로 시작
+        
+        $(document).ready(function(){
+            // p 태그를 숨기는 함수 정의 
+            $("#hide").click(function(){
+                $("p").hide();
+            });
+
+            $("#show").click(function(){
+                $("p").show();
+            });
+
+            $("#toddle").click(function(){
+                $("p").toggle();
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <h1>01_jquery</h1>
+    <hr>
+
+    <p>jquery 라이브러리 사용 
+        <br>
+        jquery 라이브러리 파일의 확장자는 .js
+        <br>
+        jquery 라이브러리 파일의 사용하려면 읽어들여야함 (외부방식)
+        <br>
+        jquery 는 기존의 프로그래밍을 편하게 사용하기 위해 만들ㅇ졌다고 ㅎ함니다
+    </p>
+        <hr>
+        <button id="hide"> hide</button>
+        <button id="show"> show</button>
+        <button id="toddle">toddle </button>
+    
+</body>
+</html>

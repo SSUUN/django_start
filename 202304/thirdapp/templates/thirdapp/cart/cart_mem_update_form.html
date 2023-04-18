@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_mem_list</title>
+
+    <script type="text/javascript">
+        function goupdate(x,y){
+
+            location.href="/third/cart_mem_update_form/?cart_no="+x+"&cart_prod="+y
+        }
+        function golist(x,y){
+
+            location.href="/third/cartmemlist/"
+        }
+    </script>
+</head>
+<body>
+    <h1>cart_mem_view</h1>
+    <hr>
+    <form id="fm" method="post" action="/third/cart_mem_update/">
+    {% csrf_token %}
+    <input type="hidden" name="cart_no" value="{{cart_no}}">
+    <input type="hidden" name="cart_prod" value="{{cart_prod}}">
+
+    <p>아이디 : {{mem_id}}</p>
+    <p>이름 : {{mem_name}}</p>
+    <p>주소 : {{mem_add1}}</p>
+    <p>구매번호 : {{cart_no}}</p>
+    <p>품목번호 : {{cart_prod}}</p>
+    <p>구매수량 : <input type="text" name="cart_qty" value="{{cart_qty}}"></p>
+  
+    <hr>
+
+    <input type="button" value="목록가기" onclick="golist()">
+    <input type="submit" value="수정하기">
+
+</form>
+</body>
+</html>

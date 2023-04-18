@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수직 네비게이션 만들기</title>
+    <style>
+        ul{
+            list-style-type: none;
+            background-color:rgb(141, 125, 116);
+            padding: 0;
+            margin: 0;
+            width:200px;
+            
+        }
+
+        li{
+            border-bottom: 1px solid red;
+            text-align: center;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+
+
+        li>a{
+            color: aqua;
+            padding: 0;
+            text-decoration: none;
+            /* a태그 열단위 에서 블록단위*/
+            display: block;
+        }
+        li>a:hover{
+            background-color: red;
+            color: blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>수직 네비게이션 만들드기ㅣ </h3>
+    <hr>
+    <ul >
+        <li><a href="/front/index/">index바로가기</a></li>
+        <li><a href="/main/main/">main바로가기</a></li>
+        <li><a href="/first/index/">first바로가기</a></li>
+        <li><a href="/">home바로가기</a></li>
+        
+    </ul>
+</body>
+</html>

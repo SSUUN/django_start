@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function gologin(){
+            //alert("함수가 잘 호출 됩니다")
+            // id 속성의 값이 fm 인 태그의 모든 정보 거져오기
+
+            fm=document.getElementById("fm");
+
+            // fm 안에있는 name 중에 값을 가져오가
+            //alert(fm.no.value);
+            //alert(fm.mem_id.value);
+            //alert(fm.mem_pw.value);
+            //alert(fm.no);
+
+            // post 방식응ㄴ 아래처럼
+            //fm.action="/front/02_login/";
+            //fm.submit();
+
+            // get 방식
+            no=fm.no.value;
+            mem_id=fm.mem_id.value;
+            mem_pw=fm.mem_pw.value;
+
+            //csrf=fm.csrfmiddlewaretoken.value;
+
+            url="/front/02_login/?";
+            url=url+"no="+no;
+            url=url+"&mem_id="+mem_id;
+
+            //url=url+"&csrf2="+csrf;
+            
+            url=url+"&mem_pw="+mem_pw;
+            //alert(url);
+            location.href=url;
+
+            
+        }
+
+    </script>
+</head>
+<body>
+    <h3> inputfrom </h3>
+    <hr/>
+    <!-- <html 에서 사용되는 형태 :  딕셔너리 
+        key :value ==name:value
+    html 페이지는 name:value 형탯용
+     python 은 key: value-->
+     
+     <!--텍스트 입력받기
+        데이터를 입력받아 서버로 전송하기 위해 form 태그가 정의되어야함 (필수는아님)
+        from 테크 내에 입력을 위한 ㅐ그들을 정의함
+        입력태그의 속성으로 name와value 가있음
+        name 과value 의값이 서버로 전송 
+        전송을담당하는캐그가 from-->
+
+    <!-- id: 고유한값 특정태그 찾기
+        name : 고유한값 해당 태그의 이름을 지정 이름이로 태그접근가능
+        method : 서버전송방식 지정 
+         post :  name , value 값이 브랑저 url 에 안보임 
+         get  :  name , value 값이 브랑저 url 에 보임 
+        action: 전송할 페이지 주소 href 와 동일함-->
+    <form id="fm" name="fm" method="post" action="/front/02_login/">
+        <!-- 화면 에는 보이지 않지만 서버로 특정값을 전송하려고 할때 -->
+        <input type="hidden" name="no" value="{{no}}">
+        <!-- python 에서 post 방식 사용할 경우 
+            form 태그안에 항상 {% csrf_token %} 사용 -->
+        {% csrf_token %}
+
+        <h5>텍스트 박스</h5>
+        <p> 
+            id : <input type="text" name="mem_id" value="{{mem_id}}"><br>
+            pw : <input type="password" name="mem_pw" value="{{mem_pw}}">
+            <hr>
+            <!-- type=button 직접처리 -->
+
+            <input onclick="gologin()" type="button" value="로그인b">
+            <!-- type =submit form태그에 지정된 방식 알아서 처리 -->
+            <input type="submit" value="로그인s">
+
+            <button  type="submit" >로그인2</button>
+            <button onclick= "gologin()" type="button" >로그인2</button>
+        </p>
+
+
+    </form>
+
+
+</body>
+</html>

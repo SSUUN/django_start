@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all</title>
+
+    <script type="text/javascript">
+        function golist(x){
+            location.href="/second/mem_view/?mem_id="+x
+        }
+    </script>
+</head>
+<body>
+    
+<table border="1">
+    {% for i in a %}
+    <tr onclick="golist('{{i.mem_id}}')">
+        <td >{{i.mem_id}}</td>
+        <td>{{i.mem_pass}}</td>
+        <td>{{i.mem_add1}}</td>
+        <td>{{i.mem_name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

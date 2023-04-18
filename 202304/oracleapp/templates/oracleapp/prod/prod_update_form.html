@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prod _update</title>
+
+
+
+</head>
+<body>
+    <h1>prod_update _form</h1>
+
+    <form id="fm" method="post" action="/oracle/prod_update/">
+        {% csrf_token %}
+        <input type="hidden" name="prod_id"  value="{{prod_id}}">
+    <p> * 상품코드 {{prod_id}}</p>
+
+    <p> *상품명  <input type="text" name="prod_name" value="{{prod_name}}" size="40" required></p>
+
+    <p> * 상품분류 {{prod_lgu}}</p>
+    <p> * 공급업체 {{prod_buyer}}</p>
+
+    <p> * 매입가 <input type="text" name="prod_cost" value="{{prod_cost}}" required></p>
+    <p> * 소비자가 <input type="text" name="prod_price" value="{{prod_price}}" required></p>
+    <p> * 판매가 <input type="text" name="prod_sale" value="{{prod_sale}}" required></p>
+    <hr>
+    <input type="button" value="취소하기" onclick="javascript:history.go(-1)">
+    <input type="submit" value="저장하기">
+</form>
+
+
+</body>
+
+</html>

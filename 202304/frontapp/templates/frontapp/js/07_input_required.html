@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>required</title>
+
+    <script type="text/javascript"> 
+        function buttonlogin(){
+            fm=document.getElementById("fm")
+            m_id=fm.mem_id.value
+            m_pw=fm.mem_pass.value
+
+            if (m_id==""){
+                alert("아이디를 입력하세요")
+                fm.mem_id.focus()}
+            else if (m_pw==""){
+                alert("패스워드을 입력하세요")
+                fm.mem_pass.focus()}
+            else
+                alert("아이디 : "+m_id+"\n"+"패스워드 : "+m_pw)
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>required</h1>
+    <hr>
+
+    <!--
+        form 아이디 fm 이름 fm 전송방식 post 페이지 # 
+        input 아이디 test,mem_id 패스워드 password mem_pass
+        버튼 type submit value 로그인 
+
+    -->
+
+    <!--
+        buttonlogin() 함수생성
+        아이디가 입력 안된 경우 
+        아이디를 입력해 주세요 경고창 
+        패드워드 마찬가지
+        모두 있으면 
+        아이디 :** 
+    -->
+
+    <form id="fm" name="fm" method="post" action="#">
+        
+        {% csrf_token %}
+        아이디   : <input type="text" name="mem_id"> <br>
+        패스워드 : <input type="password" name="mem_pass"> <br>
+
+        <input type="submit" value="submit 로그인" onclick="buttonlogin()">
+        <input type="button" value="botton 로그인" onclick="buttonlogin()">
+        
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+<!-- 문서의 정보가 최초에 읽혀지는 영역
+    문서제목 titile 브라우저 탭이름
+    css,javascript 메타정보등이 저으이되느부분-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:::::main:::: </title>
+    <script type="text/javascript">
+        function gologout(){
+        location.href="/nonmodel/logout_chk/"
+        }
+    </script>
+</head>
+<style>
+      
+        ul{
+            /*list-style-type: none;*/
+            background-color:rgb(119, 141, 116);
+            padding: 0;
+            margin: 0;
+            width:50%;
+            
+        }
+
+        li{
+            border-bottom: 1px solid red;
+            text-align: center;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+
+
+        li>a{
+            color: rgb(0, 0, 0);
+            padding: 0;
+            text-decoration: none;
+            /* a태그 열단위 에서 블록단위*/
+            display: block;
+        }
+        li>a:hover{
+            background-color: red;
+            color: blue;
+        }
+        .first{
+            background-color: rgb(255, 0, 0);
+        }
+        .second{
+            background-color: rgb(255, 221, 0);
+        }
+        .front{
+            background-color: rgb(55, 255, 0);
+        }
+        .oracle{
+            background-color: rgb(0, 191, 255);
+        }
+        .nonmodel{
+            background-color: rgb(216, 75, 255);
+        }
+    </style>
+<body>
+    <h1> mainapp index page 입니다.</h1>
+    <h2> mainapp index page 입니다.</h2>
+    <h3> mainapp index page 입니다.</h3>
+    <!-- 주석 -->
+    <!-- 페이지 이동 링크처리
+        url : http://127.0.0.1:8000
+        root 경로 : http://127.0.0.1:8000
+    -->
+    {% if request.session.ses_mem_name %}
+
+        <{{ request.session.ses_mem_name }}> 로그인중
+        <!--로그아웃 벝ㅇㄴ -->
+        <button onclick="gologout()"> 로그아웃 </button>
+    
+    
+    {% else %}
+    <form id="fm" name="fm" method="post" action="/nonmodel/login_chk/">
+        {% csrf_token %}
+        아이디 : <input type="text" name="mem_id" required><br>
+
+        패스워드 : <input type="password" name="mem_pass" required>
+        <hr>
+
+        <input type="submit" value="로그인">
+    </form>
+    {% endif %}
+    <hr/>
+ 
+    <ul>
+    <li class="first"><a href ="/first/">  first</a></li>
+    <li class="second"><a href ="/second/"> second</a></li>
+    <li class="second"><a href ="/second/"> second</a></li>
+    <li class="second"><a href ="/second/mem_all/"> second/mem_all</a></li>
+    <li class="second"><a href ="/second/cart_list/"> second/cart_list</a></li>
+    <li class="second"><a href ="/second/cart_view/"> second/cart_view</a></li>
+    <li class="second"><a href ="/second/cart_insert_form/"> second/cart_insert_form</a></li>
+    <li class="second"><a href ="/second/all_test/"> second/all_test</a></li>
+    <li class="main"><a href ="/main/main/"> main/main</a></li>
+    <li class="front"><a href ="/front/"> front</a></li>
+    <li class="front"><a href ="/front/css_1"> front/css_1</a></li>
+    <li class="front"><a href ="/front/css_2"> front/css_2</a></li>
+    <li class="front"><a href ="/front/css_3"> front/css_3</a></li>
+    <li class="front"><a href ="/front/javascript1"> front/javascript1</a></li>
+    <li class="front"><a href ="/front/javascript2"> front/javascript2</a></li>
+    <li class="front"><a href ="/front/javascript3"> front/javascript3</a></li>
+    <li class="front"><a href ="/front/01_html"> front/01_html</a></li>
+    <li class="front"><a href ="/front/02_link"> front/02_link</a></li>
+    <li class="front"><a href ="/front/03_link"> front/03_link</a></li>
+    <li class="front"><a href="/front/04_css/"> front/04_css</a></li>
+    <li class="front"><a href="/front/05_table/"> front/05_table</a></li>
+    <li class="front"><a href="/front/06_table/"> front/06_table</a></li>
+    <li class="front"><a href="/front/07_ul/"> front/07_ul</a></li>
+    <li class="front"><a href="/front/08_div/"> front/08_div</a></li>
+    <li class="front"><a href="/front/09_div/"> front/09_div</a></li>
+    <li class="front"><a href="/front/10_iframe/"> front/10_iframe</a></li>
+    <li class="front"><a href="/front/01_csstable/"> front/01_csstable</a></li>
+    <li class="front"><a href="/front/02_csstable/"> front/02_csstable</a></li>
+    <li class="front"><a href="/front/03_cssnav/"> front/03_cssnav</a></li>
+    <li class="front"><a href="/front/01_jsinputfrom/"> front/01_jsinputfrom</a></li>
+    <li class="front"><a href="/front/03_raciobutton/"> front/03_raciobutton</a></li>
+    <li class="front"><a href="/front/05_checkbox/"> front/05_checkbox</a></li>
+    <li class="front"><a href="/front/06_selectbox/"> front/06_selectbox</a></li>
+    <li class="front"><a href="/front/07_required/"> front/07_required</a></li>
+    <li class="front"><a href="/front/08_required/"> front/08_required</a></li>
+    <li class="front"><a href="/front/01_jquery/"> front/01_jquery</a></li>
+    <li class="front"><a href="/front/02_slidejquery/"> front/02_slidejquery</a></li>
+    <li class="front"><a href="/front/bootstrap01/"> front/bootstrap01</a></li>
+    <li class="front"><a href="/front/bootstrap_table/"> front/bootstrap_table</a></li>
+    <li class="front"><a href="/front/bootstrap_form/"> front/bootstrap_form</a></li>
+    <li class="oracle"><a href="/oracle/index/"> oracle/index</a></li>
+    <li class="oracle"><a href="/oracle/mem_list/"> oracle/mem_list</a></li>
+    <li class="oracle"><a href="/oracle/mem_view/"> oracle/mem_view</a></li>
+    <li class="oracle"><a href="/oracle/mem_update_form/"> oracle/mem_update_form</a></li>
+    <li class="oracle"><a href="/oracle/mem_update/"> oracle/mem_update</a></li>
+    <li class="oracle"><a href="/oracle/cart_list/"> oracle/cart_list</a></li>
+    <li class="oracle"><a href="/oracle/cart_view/"> oracle/cart_view</a></li>
+    <li class="oracle"><a href="/oracle/cart_update_form/"> oracle/cart_update_form</a></li>
+    <li class="oracle"><a href="/oracle/cart_insert_form/"> oracle/cart_insert_form</a></li>
+    <li class="oracle"><a href="/oracle/mem_cart_list/"> oracle/mem_cart_list</a></li>
+    <li class="oracle"><a href="/oracle/prod_list/"> oracle/prod_list</a></li>
+    <li class="oracle"><a href="/oracle/cart_mem_prod_list/"> oracle/cart_mem_prod_list</a></li>
+    <li class="nonmodel"><a href="/nonmodel/index/"> nonmodel/index</a></li>
+    <li class="nonmodel"><a href="/nonmodel/mem_list/"> nonmodel/mem_list</a></li>
+    <li class="nonmodel"><a href="/nonmodel/mem_view/"> nonmodel/mem_view</a></li>
+    <li class="nonmodel"><a href="/nonmodel/cart_list/"> nonmodel/cart_list</a></li>
+    <li class="nonmodel"><a href="/nonmodel/cart_view/"> nonmodel/cart_view</a></li>
+    <li class="nonmodel"><a href="/nonmodel/login_form/"> nonmodel/login_form</a></li>
+    <li class="third"><a href="/third/index/"> third/index</a></li>
+    <li class="third"><a href="/third/cartmemlist/"> third/cartmemlist</a></li>
+
+
+
+
+
+</body>
+</html>

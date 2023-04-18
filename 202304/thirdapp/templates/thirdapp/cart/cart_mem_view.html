@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_mem_list</title>
+
+    <script type="text/javascript">
+        function goupdate(x,y){
+
+            location.href="/third/cart_mem_update_form/?cart_no="+x+"&cart_prod="+y
+        }function golist(x,y){
+
+            location.href="/third/cartmemlist/"
+        }
+        function godelete(x,y){
+
+            location.href="/third/cart_mem_delete/?cart_no="+x+"&cart_prod="+y
+
+        }
+        function goinsert(x){
+
+            location.href="/third/cart_mem_insert_form/?mem_id="+x
+
+        }
+    </script>
+</head>
+<body>
+    <h1>cart_mem_view</h1>
+    <hr>
+    
+    <p>아이디 : {{mem_id}}</p>
+    <p>이름 : {{mem_name}}</p>
+    <p>주소 : {{mem_add1}}</p>
+    <p>구매번호 : {{cart_no}}</p>
+    <p>품목번호 : {{cart_prod}}</p>
+    <p>구매수량 : {{cart_qty}}</p>
+  
+    <hr>
+    <input type="button" value="목록가기" onclick="golist()">
+    <input type="button" value="추가하기" onclick="goinsert('{{mem_id}}')">
+    
+    <input type="button" value="수정하기" onclick="goupdate('{{cart_no}}','{{cart_prod}}')">
+    <input type="button" value="삭제하기" onclick="godelete('{{cart_no}}','{{cart_prod}}')">>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원관리</title>
+    <script type="text/javascript">
+            function goo(x){
+                //location.href("/")
+                location.href="/nonmodel/mem_view?mem_id="+x
+            }
+    </script>
+</head>
+
+<body>
+    <h3>회원관리 - 전체조회</h3>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+        </tr>
+        {% for i in mem_list %}
+
+        <tr>
+            <td > {{i.mem_id}} </td>
+            <td>{{i.mem_pass}}</td>
+            <td onclick="goo('{{i.mem_id}}')">{{i.mem_name}}</td>
+            <td>{{i.mem_add1}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+        
+</body>
+</html>

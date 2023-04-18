@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all</title>
+</head>
+<body>
+    <h1>all</h1>
+
+    <!-- {{lprod_list}}
+    {{buyer_list}}
+     {{buyprod_list}}
+    {{prod_list}}
+    {{cart_list}}
+    {{member_list}} 
+    {{car.cart_member}}
+    {{car.cart_prod}}-->
+    {% for i in cart_list2 %}
+        {{i}}
+        <br>
+    {% endfor %}
+
+
+
+
+
+    {% for i in all %}
+  <hr>
+
+        {% for j in i %}
+            
+            {{j}}
+            <br>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

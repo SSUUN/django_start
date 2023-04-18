@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectbox</title>
+    <script type="text/javascript">
+
+        function oneselect(){
+            fm=document.getElementById("fm")
+            alert(fm.city_one.value)
+            alert(fm.city_one[4].selected)
+        }
+
+        function multiselect(){
+            fm=document.getElementById("fm")
+            list=""
+            for(i=0;i<fm.city_multi.length;i++){
+                //선택여부확인
+                if (fm.city_multi[i].selected){
+                    list+=fm.city_multi[i].value+","
+                }
+            }
+            alert(list.slice(0,-1))
+        }
+        function multiclear(){
+            fm=document.getElementById("fm")
+
+            for(i=0;i<fm.city_multi.options.length;i++){
+                if(fm.city_multi.options[i].selected){
+                    fm.city_multi.options[i].selected=false
+                }
+            }
+           
+        }
+
+        function multiclear1(){
+            fm=document.getElementsByName("city_multi")
+            for(i=0;i<fm[0].options.length;i++){
+                
+                fm[0].options[i].selected=true
+                
+            }
+           
+        }
+
+        function initone(x){
+            
+            fm=document.getElementById("fm")
+
+            for(i=0;i<fm.city_one.options.length;i++){
+                if(fm.city_one.options[i].value==x){
+                    fm.city_one.options[i].selected=true
+                    break
+                }
+            }
+
+        }
+        function multiselect2(x){
+            x=x.split(",")
+            fm=document.getElementById("fm")
+            for(i=0;i<fm.city_multi.options.length;i++){
+                for(j=0;j<x.length;j++){
+                    if(fm.city_multi.options[i].value == x[j] ){
+                        fm.city_multi.options[i].selected=true;
+                        break;
+                    
+                }
+                }
+            }
+          }
+          
+    </script>
+   
+</head>
+<!-- 최초의 페이지가 열리면 자바스크립트 함수 를 호 출 하여 
+    값들ㅇ르 check 또는 select 하려면 어떨게?
+    -> body 태그 내에 onclick함수를 사용하면 
+    페이지 열릴때 자바스크립트 함수를 호출 
+    initmulti-->
+    
+<body onload="multiselect2('{{area}}')">
+    
+    <h1> selectbox</h1>
+    <hr>
+    <form id="fm" name="fm" method="post" action="/front/04_radio/">
+        
+        {% csrf_token %}
+        지역 한개 선택 : 
+        <select name="city_one" id="" >
+            <option value="서울"> 서울</option>
+            <option value="경기"> 경기</option>
+            <option value="광주"> 광주</option>
+            <option value="부산"> 부산</option>
+
+        </select>
+        <input type="button" value="선택" onclick="oneselect()">
+        <input type="submit">
+        <hr>
+        <!--다중 선택 하기 -->
+        다중 선택 하기 : 
+        <select name="city_multi" multiple  style="width: 100px; height: 50px;">
+            <option value="서울"> 서울</option>
+            <option value="경기"> 경기</option>
+            <option value="광주"> 광주</option>
+            <option value="부산"> 부산</option>
+
+        </select>
+        <input type="button" value="선택" onclick="multiselect()">
+        <input type="button" value="초기화" onclick="multiclear()">
+        
+    </form>
+</body>
+</html>

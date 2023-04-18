@@ -1,0 +1,61 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        table{
+            border: 1px solid rgb(0, 0, 0);
+         /*두줄라인을 한줄로*/
+            border-collapse:collapse;
+        }
+        th,td{
+            /*안쪽 여뱍 */
+            padding: 15px;
+            /*가운ㄷ정령*/
+            text-align: center;
+        }
+        th{
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>table 처리페이지</h1>
+    <hr/>
+    <table border="1">
+        
+        <!--행을 담당-->
+        <tr>
+            <!--컬럼제목-->
+            <th width="100"> 아이디</th>
+            <th width="100"> 이름 </th>
+            <th > 주소 </th>
+        </tr>
+        <!--대이터 축하기-->
+        
+        {% for i in id %}
+        <tr>
+            <td> {{i.id}}</td>
+            <td> {{i.name}} </td>
+            <td> {{i.addres}} </td>
+        </tr>
+        {% endfor %}
+
+        
+        {% for i in q %}
+        <tr>
+            {% for j in i %}
+            <td> {{j}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</body>
+</html>

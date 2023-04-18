@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_list</title>
+    <script type="text/javascript">
+        function goview(x,y){
+            location.href="/oracle/cart_view/?cart_no="+x+"&cart_prod="+y
+        }
+        function gocreate(){
+            location.href="/oracle/cart_insert_form/"
+        }
+        function sortp(y,x){
+            url="/oracle/cart_list/?col="+x
+            if(y=="1")
+            {url+="&desc=1"}
+            else{
+                url+="&desc=0"
+            }
+            location.href=url
+            
+        }
+    </script>
+
+</head>
+<body>
+    <h1>cart_list</h1>
+    <input type="button" value="등록하기" onclick="gocreate()">
+    <table border="1">
+        <tr>
+            <th>회원아이디 
+                <input type="radio" name="s1" onclick="sortp('1','cart_member')">
+                <input type="radio" name="s1"  onclick="sortp('0','cart_member')">
+            </th>
+            
+             <th>주문번호 
+                <input type="radio" name="s2" onclick="sortp('1','cart_no')">
+                <input type="radio" name="s3"  onclick="sortp('0','cart_no')">
+            </th>
+            <!-- <th>제품 아이디</th>
+            <th>주문 수량</th> -->
+            
+        </tr>
+        {% for cart in cart_list %}
+        <tr>
+            <td>{{cart.cart_member_id}}</td>
+            <td><a href="javascript:goview('{{cart.cart_no}}','{{cart.cart_prod}}')">{{cart.cart_no}}</a></td>
+            {% comment %} <td>{{cart.cart_prod}}</td>
+            <td>{{cart.cart_qty}}</td> {% endcomment %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

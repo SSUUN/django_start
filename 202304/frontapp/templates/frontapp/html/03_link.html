@@ -1,0 +1,45 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type='text/javascript'>
+        
+        function na(x){
+            
+            if (x==1)location.href='//daum.net';
+            else if (x==2)location.href='//naver.com';
+            else if (x==3)location.href='//google.com';
+            else if (x==4)location.href='/front/01_html/';
+           
+        }
+
+    </script>
+
+</head>
+<body>
+    <pre>
+    *HTML : 웹페이지 구조물
+    * 태그 시작과 끝이 있음 또는 시작과 끝이 하나인 태그도 있음
+    * 보통 HTML 을 문서 도는 페이지 라고 칭합니다 
+    </pre> 
+    <hr>
+    daum : <a href="javascript:na(1)"> [바로가기]</a>
+    <br>
+    daum : <a onclick="na(2)"> [바로가기]</a>
+    <br>
+    daum : <a onclick="na(3)"> [바로가기]</a>
+    <br>
+    <img src="{% static 'frontapp/images/asd.png' %}"
+        onclick="na(4)"
+        width="200"
+        height="200">
+
+    daum : <a href="#"> [바로가기]</a>
+
+</body>
+</html>

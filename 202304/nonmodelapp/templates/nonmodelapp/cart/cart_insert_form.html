@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart_update</title>
+    <script type="text/javascript">
+        function goinsertp(){
+           
+            fm=document.getElementById("fm");
+            fm.action="/nonmodel/cart_insert/"
+            fm.submit();
+        }
+        function goinsertg(){
+            fm=document.getElementById("fm");
+
+            url="/nonmodel/cart_insert/?"
+
+            url+="cart_member="+fm.cart_member.value
+            url+="&cart_no="+fm.cart_no.value
+            url+="&cart_prod="+fm.cart_prod.value
+            url+="&cart_qty="+fm.cart_qty.value
+
+            location.href=url
+        }
+    </script>
+    
+
+
+
+</head>
+<body>
+    <h1> cart_update</h1>
+    <!-- /oracle/cart_insert/ -->
+<form name="fm" id="fm" method="get" action="#">
+
+    {% csrf_token %}
+    
+
+    <p > 회원 아이디 : <input type="text" name="cart_member"  value="a001" required></p>
+    <p > 주문 번호   : <input type="text" name="cart_no"  value="2023041300001" required></p>
+    <p>제품 아이디 : <input type="text" name="cart_prod"  value="P201000018" required></p>
+    <p>주문 수량   : <input type="text" name="cart_qty"  value="56" required></p>
+    
+    <hr>
+    <input type="submit" value="저장하기(sub)">
+    <input type="button" value="저장하기(but-post)" onclick="goinsertp()">
+    <input type="button" value="저장하기(but-get)" onclick="goinsertg()">
+    <input type="button" value="뒤로가기" onclick="javascript:history.go(-1)">
+    
+
+</form>
+</body>
+</html>

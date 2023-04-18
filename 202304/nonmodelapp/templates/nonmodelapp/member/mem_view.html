@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+
+    <script type="text/javascript">
+        function golist(){
+
+            location.href="/nonmodel/mem_list/"
+        }
+
+        function goupdate(x){
+            location.href="/nonmodel/mem_update_form/?mem_id="+x
+        }
+        function godelete(){
+            alert("3")
+        }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th> 
+        </tr>
+        <tr>
+    <td>{{mem_view.mem_id}}</td>
+    <td>{{mem_view.mem_pass}}</td>
+    <td>{{mem_view.mem_name}}</td>
+    <td>{{mem_view.mem_add1}}</td> 
+</tr>
+</table>
+    <input type="button" value="목록가기" onclick="golist()">
+    
+    <input type="button" value="주정하기" onclick="goupdate('{{mem_view.mem_id}}')">
+    
+    <input type="button" value="삭제하기" onclick="godelete()">
+</body>
+</html>

@@ -1,0 +1,22 @@
+{%load static%}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::::::::: </title>
+</head>
+<body>
+    <h1> frontapp 01_image "이미지 테스트" 입니다.<h1>
+    <hr/>
+    <!--이미지 버여주기-->
+    dog image : <img src="/static/frontapp/images/asd.png"
+        width="200" heigth="600">    
+        
+    dog image : <img src="{% static 'frontapp/images/asd.png' %}"
+        width="300" heigth="1600">    
+                          
+    <hr/>
+    front index : <a href="/front/index/"> [바로가기]<a/>
+</body>
+</html>

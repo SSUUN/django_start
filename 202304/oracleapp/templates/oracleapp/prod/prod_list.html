@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prot_list</title>
+    <script type="text/javascript">
+
+        function sortp(y,x){
+            url="/oracle/prod_list/?col="+x
+            if(y=="1")
+            {url+="&desc=1"}
+            else{
+                url+="&desc=0"
+            }
+            location.href=url
+            
+        }
+
+        function goview(x){
+
+            location.href="/oracle/prod_view/?prod_id="+x
+
+        }
+
+        function select1(y){
+
+            url="/oracle/prod_list/?"
+            se=document.getElementById("q")
+            for(i=0;i<se.length;i++){
+                if(se[i].selected)
+                    url+="&how="+se[i].value
+            }
+            url+="&kk="+document.getElementsByName("price")[0].value
+            location.href=url
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>prod_list</h1>
+   
+
+    <select name="pp" id="q">
+        <option value="prod_cost">매입가</option>
+        <option value="prod_price">소비자가</option>
+        <option value="prod_sale">판매가</option>
+    </select>
+
+    <input type="text" name="price" value="0">
+    
+    <input type="button" value="검색" onclick="select1()">
+    
+    <table border="1">
+
+        <tr>
+
+            <th>상품코드 
+                <input type="radio" name="s1" onclick="sortp('1','prod_id')">
+                <input type="radio" name="s1"  onclick="sortp('0','prod_id')">
+            </th>
+            
+             
+
+            <!-- <th> 상품코드</th> -->
+            <th> 상품명</th>
+            <th> 상품분류</th>
+            <th> 공급업체</th>
+
+            <!-- <th> 매입가</th> -->
+            <th>매입가 
+                <input type="radio" name="s2" onclick="sortp('1','prod_cost')">
+                <input type="radio" name="s3"  onclick="sortp('0','prod_cost')">
+            </th>
+            
+            <th> 소비자가</th>
+            <!-- <th> 판매가</th> -->
+            <th>판매가 
+                <input type="radio" name="s2" onclick="sortp('1','prod_sale')">
+                <input type="radio" name="s3"  onclick="sortp('0','prod_sale')">
+            </th>
+
+        </tr>
+        
+        {% for p in prod_list %}
+            {% if p.prod_price > kk  %}
+            <tr>
+                <td><a href="javascript:goview('{{p.prod_id}}')">{{p.prod_id}}</a></td>
+                <td>{{p.prod_name}}</td>
+                <td>{{p.prod_lgu}}</td>
+                <td>{{p.prod_buyer}}</td>
+                <td>{{p.prod_cost}}</td>
+                <td>{{p.prod_price}}</td>
+                <td>{{p.prod_sale}}</td>
+  
+
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
